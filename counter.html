@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Student Counter</title>
+  <style>
+    .allCounter {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  margin: 0;
+  background: linear-gradient(127deg, rgba(6,41,127,06) 0%, rgba(14,14,15,.5) 100%), url('img/facilities/Admin_block.jpg') no-repeat center center;
+  background-size: 100% 100px;
+
+}
+
+.counter-container {
+    margin:80px;
+    text-align: center;
+}
+
+.counter-container h1 {
+  font-size: 2rem;
+  color: white;
+}
+
+.counter {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #4CAF50;
+  margin-top: 8px;
+}
+
+  </style>
+</head>
+<body>
+    <div class="container-fluid allCounter">
+        <div class="counter-container">
+            <h1>Students</h1>
+            <div class="counter" id="student-counter">0</div>
+        </div>
+        <div class="counter-container">
+            <h1>Faculty</h1>
+            <div class="counter" id="faculty-counter">0</div>
+        </div>
+        <div class="counter-container">
+            <h1>Programmes</h1>
+            <div class="counter" id="prog-counter">0</div>
+        </div>
+        <div class="counter-container">
+            <h1>Laboratories</h1>
+            <div class="counter" id="lab-counter">0</div>
+        </div>
+    </div>
+  <script>
+    const stCount = 8000; // Final number of students
+    const facCount = 500; // Final number of students
+    const prgCount = 24; // Final number of students
+    const labCount = 100; // Final number of students
+    const incrementStSpeed = 5; // Speed of the counter in milliseconds
+    const incrementSpeed = 50;
+
+const stElement = document.getElementById('student-counter');
+const facElement = document.getElementById('faculty-counter');
+const prgElement = document.getElementById('prog-counter');
+const labElement = document.getElementById('lab-counter');
+let currentStCount = 0;
+let currentFacCount = 0;
+let currentPrgCount = 0;
+let currentLabCount = 0;
+
+// Function to increment the counter
+function incrementStCounter() {
+  if (currentStCount < stCount) {
+    currentStCount++;
+    stElement.textContent = currentStCount;
+    setTimeout(incrementStCounter, incrementStSpeed);
+  } else {
+    //displayFinalCount();
+    stElement.textContent = `${stCount}`;
+  }
+}
+
+// Function to increment the counter
+function incrementFacCounter() {
+  if (currentFacCount < facCount) {
+    currentFacCount++;
+    facElement.textContent = currentFacCount;
+    setTimeout(incrementFacCounter, incrementSpeed);
+  } else {
+    //displayFinalCount();
+    facElement.textContent = `${facCount}`;
+  }
+}
+
+function incrementPrgCounter() {
+  if (currentPrgCount < prgCount) {
+    currentPrgCount++;
+    prgElement.textContent = currentPrgCount;
+    setTimeout(incrementPrgCounter, incrementSpeed);
+  } else {
+    //displayFinalCount();
+    prgElement.textContent = `${prgCount}`;
+  }
+}
+
+function incrementLabCounter() {
+  if (currentLabCount < labCount) {
+    currentLabCount++;
+    labElement.textContent = currentLabCount;
+    setTimeout(incrementLabCounter, incrementSpeed);
+  } else {
+    //displayFinalCount();
+    labElement.textContent = `${labCount}`;
+  }
+}
+
+/*Function to display the final count
+function displayFinalCount() {
+  stElement.textContent = `Total: ${finalCount}`;
+}*/
+
+// Start the counter animation
+incrementStCounter();
+incrementFacCounter();
+incrementPrgCounter();
+incrementLabCounter();
+  </script>
+</body>
+</html>
